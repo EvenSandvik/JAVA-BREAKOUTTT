@@ -22,8 +22,8 @@ public class Breakout extends Applet implements Runnable, KeyListener {
 	//TODO: Herman fixi. Skriv metoden for player
 	//Player player = new Player();
 	
-	//TODO: Ball metode. Heems eller evvs fix
-	//Ball ball = new Ball();
+	//TODO: Ball klasse. Heems eller evvs fix
+	Ball ball = new Ball();
 	
 	//Method initializes application
 	public void init(){
@@ -36,6 +36,7 @@ public class Breakout extends Applet implements Runnable, KeyListener {
 	}
 	//Updates per cycle
 	public void update(Graphics gfx){
+		Ball.move();;
 		paint(gfx);
 	}
 	
@@ -43,14 +44,20 @@ public class Breakout extends Applet implements Runnable, KeyListener {
 	public void run() {
 		while(true){
 			repaint();
+			try {
+				Thread.sleep(7);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public void paint(Graphics g){
-		gfx.setColor(Color.GREEN);
+		gfx.setColor(Color.BLACK);
 		gfx.fillRect(0, 0, WIDTH, HEIGHT);
 		gfx.setColor(Color.black);
 		gfx.drawString("TEST TEST TEST TEST TEST", 340, 30);
+		Ball.draw(gfx);
 		//draw ball, player etc...
 		
 		g.drawImage(img, 0, 0, this);
