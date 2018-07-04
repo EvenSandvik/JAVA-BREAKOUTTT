@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package newpackage;
+package Breakout;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -19,13 +20,19 @@ public class Player{
     float speed = 0;
     float x = 450;
     final float y = 500;
+    int points = 0;
     
     Player(int x, int y){
-
     }
     
     int width = 150;
     int height = 20;
+    
+    public void setWidth(int grow){
+    	
+    	width = width + grow;
+    	
+    }
     
     public void draw(Graphics g){
         g.setColor(Color.white);
@@ -64,6 +71,13 @@ public class Player{
         
         return height;
     }
+    
+    public int getPoints(){  
+        return points;
+    }
+    public void setPoint(int points){
+		this.points += points;
+	}
 
     public void keyPressed(KeyEvent e, int VKleft, int VKright) {
                 if(e.getKeyCode() == VKleft){
