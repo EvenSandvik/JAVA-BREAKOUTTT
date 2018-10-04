@@ -15,16 +15,17 @@ public class MainMenu extends Applet implements MouseInputListener{
 	Graphics gfx;
 	Image img;
 	Image playerImg;
+	boolean gameStarted = true;
+	Breakout game;
 	
 	public void init(){
 		this.resize(WIDTH, HEIGHT);
 		img = createImage(WIDTH, HEIGHT);
-		gfx = img.getGraphics();
 		this.addMouseListener(this);
 	}
 	
 	public void Update(Graphics g){
-		paint(gfx);
+			paint(gfx);
 	}
 	
 	public void paint(Graphics g){
@@ -33,17 +34,16 @@ public class MainMenu extends Applet implements MouseInputListener{
 		gfx.fillRect(0, 0, WIDTH, HEIGHT);
 		gfx.setColor(Color.white);
 		gfx.drawString("Press to Play", 500, 300);
-		playerImg = getImage(getCodeBase(), "playerImage.jpg");
 		g.drawImage(img, 0, 0, this);
-		g.drawImage(playerImg, 0, 0, this);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Make it start the game
-		if(e.getX() >= 500 && e.getX() <= 600){
-			if(e.getY() >= 300 && e.getY() <= 350){
-				Breakout game = new Breakout();
+		if(e.getX() >= 0 && e.getX() <= 600){
+			if(e.getY() >= 0 && e.getY() <= 600){
+				game = new Breakout();
+				game.init();
 				System.out.println("#MainMenu mouseclicked()");
 			}
 		}
