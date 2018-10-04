@@ -18,17 +18,18 @@ import java.awt.event.KeyListener;
 public class Player{
     
     float speed = 0;
-    float x = 450;
-    final float y = 500;
-    int points = 0;
+    float x = 380;
+    final float y = 650;
+   
     
-    Player(int x, int y){
+    public Player(){
+    	
     }
     
     int width = 150;
     int height = 20;
     
-    public void setWidth(int grow){
+    public void growWidth(int grow){
     	
     	width = width + grow;
     	
@@ -40,20 +41,16 @@ public class Player{
         
     }
     public void move(){
-        //(x > 0 && x < 1000)
         if(x < 0)
             x = 0;
-        else if(x > 1000-width)
-            x = 1000-width;
+        else if(x > 900-width)
+            x = 900-width;
         else
-            x += speed;
-
-        
+            x += speed;        
     }
     
     
-    public float getX(){
-        
+    public float getX(){  
         return x;
     }
     
@@ -72,13 +69,6 @@ public class Player{
         return height;
     }
     
-    public int getPoints(){  
-        return points;
-    }
-    public void setPoint(int points){
-		this.points += points;
-	}
-
     public void keyPressed(KeyEvent e, int VKleft, int VKright) {
                 if(e.getKeyCode() == VKleft){
                         speed = -8;
