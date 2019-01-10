@@ -49,11 +49,6 @@ public class Ball {
 	            //System.out.println("BallHit: " + ballHitPlayer + " x: " + xVel + " y: " + yVel + " velocity: " + velocity);
 		}
 		
-		//Simpler bounceback
-		private void bounceBack(){
-			yVel = -yVel;
-		}
-	
 	 public boolean checkCollision(int x, int y, int width, int height){
      	if(this.y >= y && this.y<= y + height){
      		if(this.x >= x && this.x <= x + width){
@@ -78,7 +73,6 @@ public class Ball {
 	public static void draw(Graphics g) {
 		g.setColor(Color.white);
 		g.fillOval((int) x, (int)y, 20, 20);
-		//game.drawImageBreakout("ball.png", ballImg, x, y);
 	}
 	
 	public boolean getCollision(){

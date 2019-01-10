@@ -20,7 +20,7 @@ public class PowerUpGravity extends AbstractPowerUp{
 	}
 
 	public void draw(Graphics g){
-		g.setColor(Color.GREEN);
+		g.setColor(Color.RED);
 		g.fillRect(x, y, size, size);
 		//game.drawImageBreakout("powerUpSize.png", powerImg, x, y);
 		if(ball.checkCollision(x, y, size, size)){
